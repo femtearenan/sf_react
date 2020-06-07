@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default function RepLogList(props) {
-    const { hightlightedRowId, onRowClick } = props;
-
-    const repLogs = [
-        { id: 1, reps: 25, itemLabel: 'My Laptop', totalWeightLifted: 112.5 },
-        { id: 2, reps: 10, itemLabel: 'Big Fat Cat', totalWeightLifted: 180 },
-        { id: 8, reps: 4, itemLabel: 'Big Fat Cat', totalWeightLifted: 72 }
-    ];
+    const { hightlightedRowId, onRowClick, repLogs } = props;
 
     return (
         <tbody>
@@ -26,3 +21,9 @@ export default function RepLogList(props) {
         </tbody>
     );
 }
+
+RepLogList.propTypes = {
+    highlightedRowId: PropTypes.any,
+    onRowClick: PropTypes.func.isRequired,
+    repLogs: PropTypes.array.isRequired
+};
