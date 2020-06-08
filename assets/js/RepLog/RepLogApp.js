@@ -49,8 +49,11 @@ export default class RepLogApp extends Component {
     }
 
     handleDeleteRepLog(id) {
-        console.log('TODO');
-        
+        this.setState((prevState) =>{
+            return {
+                repLogs: prevState.repLogs.filter(replog => replog.id !== id)
+            }
+        });        
     }
 
     render() {
