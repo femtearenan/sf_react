@@ -2,8 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 export default function RepLogList(props) {
-    const { hightlightedRowId, onRowClick, repLogs } = props;
+    const { hightlightedRowId, onDeleteRepLog, onRowClick, repLogs } = props;
 
+    const handleDeleteClick = function(event, repLogId) {
+        event.preventDefault();
+
+        onDeleteRepLog(repLogId);
+    }
     return (
         <tbody>
         {repLogs.map(repLog => (
@@ -15,7 +20,11 @@ export default function RepLogList(props) {
                 <td>{repLog.itemLabel}</td>
                 <td>{repLog.reps}</td>
                 <td>{repLog.totalWeightLifted}</td>
-                <td>...</td>
+                <td>
+                    <a href="#" onClick={(event) => handleDeleteClick(event, repLog.id)}>
+                        <span className="fa fa-trash"></span>
+                    </a>
+                </td>
             </tr>
         ))}
         </tbody>
@@ -25,5 +34,6 @@ export default function RepLogList(props) {
 RepLogList.propTypes = {
     highlightedRowId: PropTypes.any,
     onRowClick: PropTypes.func.isRequired,
+    onDeleteRepLog: PropTypes.func.isRequired,
     repLogs: PropTypes.array.isRequired
 };

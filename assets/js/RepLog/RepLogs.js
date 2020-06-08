@@ -2,6 +2,7 @@ import React from 'react';
 import RepLogList from './RepLogList';
 import PropTypes from 'prop-types';
 import RepLogCreator from './RepLogCreator';
+// import RepLogCreator from './RepLogCreatorControlledComponents';
 
 function calculateTotalWeightLifted(repLogs) {
     let total = 0;
@@ -21,7 +22,8 @@ export default function RepLogs(props) {
         repLogs, 
         onAddRepLog,
         numberOfHearts,
-        onHeartChange
+        onHeartChange,
+        onDeleteRepLog
     } = props;
 
     let heart = '';
@@ -56,6 +58,7 @@ export default function RepLogs(props) {
                     hightlightedRowId={hightlightedRowId} 
                     onRowClick={onRowClick}
                     repLogs={repLogs}
+                    onDeleteRepLog={onDeleteRepLog}
                 />
                 <tfoot>
                     <tr>
@@ -84,6 +87,7 @@ RepLogs.propTypes = {
     highlightedRowId: PropTypes.any,
     onRowClick: PropTypes.func.isRequired,
     onAddRepLog: PropTypes.func.isRequired,
+    onDeleteRepLog: PropTypes.func.isRequired,
     onHeartChange: PropTypes.func.isRequired,
     repLogs: PropTypes.array.isRequired,
     numberOfHearts: PropTypes.number.isRequired,
