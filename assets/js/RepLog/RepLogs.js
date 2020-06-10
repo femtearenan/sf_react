@@ -17,7 +17,7 @@ const calculateFancierWeight = repLogs => repLogs.reduce((total, log) => total +
 export default function RepLogs(props) {
     const {
         withHeart, 
-        hightlightedRowId, 
+        highlightedRowId, 
         onRowClick, 
         repLogs, 
         onAddRepLog,
@@ -66,7 +66,7 @@ export default function RepLogs(props) {
                 </tr>
                 </thead>
                 <RepLogList 
-                    hightlightedRowId={hightlightedRowId} 
+                    highlightedRowId={highlightedRowId} 
                     onRowClick={onRowClick}
                     repLogs={repLogs}
                     onDeleteRepLog={onDeleteRepLog}

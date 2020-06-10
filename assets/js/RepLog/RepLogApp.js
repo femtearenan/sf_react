@@ -122,14 +122,16 @@ export default class RepLogApp extends Component {
 
         deleteRepLog(id)
             .then(() => {
+
+                this.setState((prevState) =>{
+                    return {
+                        repLogs: prevState.repLogs.filter(replog => replog.id !== id)
+                    }
+                });    
+
                 this.setSuccessMessage('Item was Un-Lifted!');
             });
 
-        this.setState((prevState) =>{
-            return {
-                repLogs: prevState.repLogs.filter(replog => replog.id !== id)
-            }
-        });        
     }
 
     render() {
